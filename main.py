@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 from collections import Counter
 
 
-#TEMPORARY!
+
 from tkinter import *
 
 window=Tk()
 
-#END TEMPORARY
+
 
 def get_song_name():
 	band = enter_artist_value.get()
@@ -34,36 +34,21 @@ def find_song(artist, song_name):
 	unwanted = all_lyrics.find("p")
 	unwanted.extract()
 	text_lyrics = all_lyrics.text
-#	print(all_lyrics)
-	
 	lyric_words = text_lyrics.split()
-	
 	word_counts = Counter(lyric_words)
 	print(word_counts)
 	prominent_words = dict(Counter(word_counts).most_common(5))
-
-	# objects = word_counts.keys()
-	# count = word_counts.values()
-	
 	objects = prominent_words.keys()
 	count = prominent_words.values()
-
+	
 	plt.bar(objects, count, align='center', alpha=0.5)
 	plt.ylabel('Times Used')
-
 	plt.title("Word usage in %s, by %s." % (song_name, artist))
-
 	plt.show()
-	# print(lyric_words)
+	
 	
 
-	
-
-
-#the-suburbs
-
-
-#TEMPORARY
+#frontend
 e1=Label(window,text="Song Name:")
 e1.grid(row=0,column=0)
 
